@@ -532,7 +532,7 @@ function getParts(companyId){ return state.partsByCompany[companyId] || []; }
 /* ============================= COMPUTATIONS ============================= */
 function partRemaining(part, stages){
   const last = stages[stages.length-1];
-  const shipped = Number(part.qtys[last]||0);
+  const shipped = Number(part.qtys?.[last]||0);
   return Math.max(0, Number(part.orderedQty||0) - shipped);
 }
 function partTotalReject(part){
